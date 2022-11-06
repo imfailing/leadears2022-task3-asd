@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+<ul class="horizontal">
+  <li><a  href="/"">Карта</a></li>
+  <li><a href="/heatmap">Тепловая карта</a></li>
+  <li><a class="active" href="/contact">Контакты</a></li>
+  <li class="rightli" style="float:right"><a href="/about">О нас</a></li>
+</ul>
+
+<div class="container" style="line-height: 1.5em;">
+<h2>Команда asd:</h2>
+<strong>Кочетков Юрий, tg: @Draggi<br>
+Андросов Сергей,  tg: @androsovsv<br>
+Балакин Александр, tg: @rtzzzzz</strong>
+</div>
+
+{% endblock %}

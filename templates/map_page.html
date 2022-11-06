@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+ <script src="https://yastatic.net/jquery/2.2.3/jquery.min.js"></script>
+
+<!--coordorder=longlat&amp; ЕСЛИ ГЕОДЖСОН -->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ae799016-ee89-4af9-9aaf-f273e9ebf4f7" type="text/javascript"></script>
+
+<script src="{{ url_for('static',filename='loading_manager.js') }}" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
+
+
+{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+<ul class="horizontal">
+  <li><a class="active"  href="/"">Карта</a></li>
+  <li><a href="/heatmap">Тепловая карта</a></li>
+  <li><a href="/contact">Контакты</a></li>
+  <li class="rightli" style="float:right"><a href="/about">О нас</a></li>
+</ul>
+
+<div class = "map_and_toggles">
+
+    <div id="map-test" class="map"></div>
+    
+    <div class="vertival_toggles">
+
+        <div class="search_bar">
+            <input type="text" class="search_text" id="searchbar" name="searchbar"  size="40" height="100" placeholder="Поиск по номеру заявки" minlength="3" maxlength="13">
+            <input type="date" id="start" name="trip-start" value="2021-01-01" min="2021-01-01" max="2022-01-01"/>
+            <input type="date" id="finish" name="trip-finish" value="2021-01-01"  min="2021-01-01" max="2022-01-01"/>
+        </div>
+        
+        <div class="second_row">
+            <ul class="ks-cboxtags">
+                <li><input type="checkbox" class="isProblem" id="isProblemone" value="False" checked><label for="isProblemone">Заявки без проблем</label></li>
+                <li><input type="checkbox" class="isProblem" id="isProblemtwo" value="True" checked><label for="isProblemtwo">Заявки с проблемами</label></li>
+            </ul>
+
+            <ul class="toggle r" id="toggle-1">
+              <input type="checkbox" id="checkbox_toggle" class="checkbox_toggle" />
+              <div class="toggle_knobs"></div>
+            </ul>
+            
+        </div> 
+   
+        <div><details>
+            <summary>Тип проведенных работ</summary>
+
+        <div class="check_container">
+              <ul class="ks-cboxtags">
+                <li><input type="checkbox" class="messageCheckbox" id="checkboxOne" value="1594" checked><label for="checkboxOne">Сантехника</label></li>
+                <li><input type="checkbox" class="messageCheckbox" id="checkboxTwo" value="59" checked><label for="checkboxTwo">Электрика</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxThree" value="53"><label for="checkboxThree">Отопление</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxFour" value="1597"><label for="checkboxFour">Уборка</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxFive" value="51"><label for="checkboxFive">Лифты</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxSix" value="1595"><label for="checkboxSix">Канализация</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxSeven" value="54"><label for="checkboxSeven">Плотницкие, слесарные работы</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxEight" value="48"><label for="checkboxEight">Домофоны (запирающие устройства)</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxNine" value="60"><label for="checkboxNine">Другое</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTen" value="49"><label for="checkboxTen">Зимние виды работ</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxEleven" value="45"><label for="checkboxEleven">Благоустройство</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTwelve" value="50"><label for="checkboxTwelve">Кровля</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxThirteen" value="1596"><label for="checkboxThirteen">Содержание общедомовых помещений</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxFourteen" value="2313"><label for="checkboxFourteen">Дезинсекция</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxFifteen" value="46"><label for="checkboxFifteen">Вентиляция</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxSixteen" value="57"><label for="checkboxSixteen">Уличное освещение</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxSeventeen" value="58"><label for="checkboxSeventeen">Фасадные работы</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxEighteen" value="56"><label for="checkboxEighteen">Системы ДУ и ППА</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxNineteen" value="1598"><label for="checkboxNineteen">Управление освещением подъезда</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTwenty" value="1598"><label for="checkboxTwenty">Освещение</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTwentyone" value="64"><label for="checkboxTwentyone">Электроплиты</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTwentytwo" value="2312"><label for="checkboxTwentytwo">Дератизация</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTwentythree" value="1599"><label for="checkboxTwentythree">Водосчетчики</label></li>
+                <li><input type="checkbox"  class="messageCheckbox" id="checkboxTwentyFour" value="2335"><label for="checkboxTwentyFour">Подъемные платформы для инвалидов</label></li>
+
+              </ul>
+        </div> 
+
+
+              </details></div>
+        
+        <button id="dt_submit" class="button">Применить</button>
+
+        <a href="#" id="downloadLink" style="text-align: right; margin-top=1em">Загрузить данные</a>
+        <div id="side_panel" class="scrollable">
+        </div>
+        <script>
+        function downloadInnerHtml(filename, elId, mimeType) {
+            var elHtml = document.getElementById(elId).innerHTML.replace(/<[^>]+>/g, '');
+            var link = document.createElement('a');
+            mimeType = mimeType || 'text/plain';
+        
+            link.setAttribute('download', filename);
+            link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elHtml));
+            link.click(); 
+        }
+        
+        var fileName =  'data.txt'; // You can use the .txt extension if you want
+
+        $('#downloadLink').click(function(){
+        downloadInnerHtml(fileName, 'side_panel');
+        });
+        </script>
+        
+      </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+<!--    e.preventDefault();
+      <button type = "submit" class="btn btn-primary">Submit</button>
+      <!-- /.input group -->
+  </div>
+  
+  <form method="POST"  id="date-form">
+    <div class="form-group">
+        <label>Date and time range:</label>
+        <div class="input-group">
+          <input type="datetime-local" id="starttime"
+           name="starttime" value="2019-11-15T14:30"
+           min="2019-01-01T00:00" max="2030-12-31T00:00">
+                 <input type="datetime-local" id="finishtime"
+                  name="finishtime" value="2019-11-15T14:30"
+                  min="2019-01-01T00:00" max="2030-12-31T00:00">
+        </div>
+      </div>
+  </form>
+
+
+ -->
+
+
+
+
+
+
+

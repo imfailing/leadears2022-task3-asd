@@ -1,0 +1,30 @@
+.slidecontainer {
+  width: 30%; /* Width of the outside container */
+  height:50px;
+
+}
+
+/* The slider itself */
+.slider {
+  width: 90%; /* Full-width */
+  background: #d7e3e3; /* Grey background */
+  margin-bottom: 1em;
+}
+
+form:invalid [type="submit"] {
+  pointer-events: none;
+  border: 1px solid #999999;
+  background-color: #CCCCCC;
+  color: #666666;
+}
+.button:active,
+.active {
+  top: 2px;
+  left: 1px;
+  box-shadow: none;
+}
+
+
+.center {
+text-align: center;
+}

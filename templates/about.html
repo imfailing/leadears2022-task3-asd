@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+<ul class="horizontal">
+  <li><a  href="/"">Карта</a></li>
+  <li><a href="/heatmap">Тепловая карта</a></li>
+  <li><a href="/contact">Контакты</a></li>
+  <li class="rightli" style="float:right"><a class="active" href="/about">О нас</a></li>
+</ul>
+
+<div class="container">
+    <h2>О нас</h2>
+    <p class="lead">Наша команда состоит из экспертов разных отраслей, нас всех объединяет высокий профессионализм.<br>
+    Мы предлагаем прототип в виде web service, который будет иметь простой и интуитивно понятный интерфейс.<br>
+    В создании прототипа будем использовать микросервисную архитектуру.<br>
+    <br> 
+    <strong>Основные сервисы:</strong><br>
+    Prepare data;<br>
+    RDBMS Modeling;<br>
+    Models;<br>
+    ETL;<br>
+    Web server;<br>
+    Administrator panel.<br>
+    
+    Задача со *: тепловые карты, в основе которых будет лежать модель кластеризации, которая в свою очередь будет основываться на данных NLP-модели.<br>
+        </p><br>
+</div>
+    <div class="container"><strong>asd 2022</strong></div>
+{% endblock %}

@@ -1,0 +1,296 @@
+/* PAGE STYLING */
+
+html {
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 99%;
+  height: 99%;
+}
+.map {
+width: 70%;
+background-color: #333;
+}
+
+.map-heat{
+width: 70%;
+height: 100%;
+padding: 0;
+margin-right:1em;
+}
+
+.map_and_toggles{
+display:flex;
+justify-content:space-around;
+height: 90vh;
+}
+
+.box {
+  display: flex;
+}
+
+input {
+    line-height: 3em; // 2em is (2 * default line height)
+}
+
+
+.regime{
+margin-bottom: 1em;
+}
+.search_bar{
+width:100%;
+}
+.search_text{
+width:50%;
+}
+
+.vertival_toggles{
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+margin-left: 1em;
+}
+
+.scrollable{
+width:90%;
+height:90%;
+line-height:3em;
+overflow:scroll;
+padding:5px;
+overflow-x: hidden;
+}
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+/* HEADER */
+
+
+ul.horizontal{
+list-style-type:none;
+margin-bottom: 1em; padding:0;
+overflow:hidden;
+background-color:#333;
+}
+
+ul.horizontal li{
+float:left;
+}
+
+ul.horizontal li a{
+display:inline-block;
+color:white;
+text-align:center;
+padding:14px 16px;
+text-decoration:none;
+}
+
+ul.horizontal li a:hover:not(.active){
+background-color:#000;
+}
+ul.horizontal li a.active{
+background-color:#12bbd4;
+}
+li.rightli{
+float:right;
+}
+@media screen and (max-width: 408px){
+.rightli{display:none;}
+}
+
+a{
+background-color:transparent;
+}
+
+a{color:inherit;}
+
+a:active,a:hover{
+outline-width:0;
+color:#059862;
+}
+
+/* CHEKBOXES */
+
+
+.check_container {
+    max-width: 600px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+
+}
+
+.second_row {
+display:flex;
+justify-content:space-around;
+
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 5px;
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+
+/* SUBMIT */
+
+.button {
+  border-radius: 10rem;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: .75rem 1.25rem;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 1;
+  color: #fff;
+  background: #12bbd4;
+
+}
+
+.button:hover {
+  background: #12aad4;
+}
+
+.button:active {
+  background: #1297d4;
+  top: 2px;
+}
+
+button:disabled{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+/* TOGGLE */
+
+
+ul.toggle {    
+  position: relative;
+  width: 34px;
+  height: 36px;
+  background: #d7e3e3;
+  margin-top: 1.6em;
+}
+
+ul.toggle.r {
+  border-radius: 100px;
+}
+.checkbox_toggle {
+  position: relative;
+  right: 42px;
+  width: 70px;
+  height: 100%;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.toggle_knobs {
+  z-index: 2;
+}
+
+
+/* Button 1 */
+#toggle-1 .toggle_knobs:before {
+  content: "ADD";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #12bbd4;
+  border-radius: 50%;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#toggle-1 .checkbox_toggle:checked + .toggle_knobs:before {
+  content: "DEL";
+  left: 42px;
+  background-color: #f44336;
+}
+
+
+#toggle-1 .toggle_knobs,
+#toggle-1 .toggle_knobs:before,
+#toggle-1 .toggle_layer {
+  transition: 0.3s ease all;
+}
